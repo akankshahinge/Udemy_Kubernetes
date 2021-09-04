@@ -32,3 +32,47 @@ Trick - To edit pod definition
 ```
 $ kubectl edit pod redis
 ```
+## Replica Controller
+Run multiple instances of a pod in kubernetes cluster for high availability. Replication controller always maintains a specified pods running. Another reason is for load balancing and scaling. If load increases on a single node then we expand load on multiple containers
+
+#### Note: Replication controller is older technology and Replica set is a new way to set up the replication
+YAML
+```
+apiVersion: apps/v1
+kind: ReplicaSet 
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  template:
+    metadata: 
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+    
+  replicas: 6
+  selector:
+    matchLabels: 
+      type: front-end
+  
+  >> kubectl create -f replicaset.yaml
+  >> kubetcl get replicaset
+  >> kubectl get pods
+  >> kubectl delete replicaset myapp-replicaset
+
+```
+#### Note: The spec section contains definition of pod, so directly take from it. Selector is a necessary tag needed because replication controller can controller other pods as well. Selector tag is not present in replicationcontroller but it is present in replicationset.
+
+#### Update Replicaset to increase replica count
+1. Increase replica count
+2. Run >> kubectl replace -f rs.yaml
+
+Or directly use a kubernetes command to scale it
+>> kubectl scale --replicas=6 -f rs.yaml
