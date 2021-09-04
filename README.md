@@ -24,3 +24,11 @@ spec:
       
 >> kubectl create -f pod-definition.yml
 ```
+Trick - To get dryrun of pod definition
+```
+$ kubectl run redis image=redis --dry-run=client -o yaml > pod.yaml
+```
+Trick - To edit pod definition
+```
+$ kubectl edit pod redis
+```
