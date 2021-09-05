@@ -75,4 +75,18 @@ spec:
 2. Run >> kubectl replace -f rs.yaml
 
 Or directly use a kubernetes command to scale it
->> kubectl scale --replicas=6 -f rs.yaml
+>> kubectl scale replicaset myapp-replicaset --replicas=2
+
+Or 
+>> kubectl edit replicaset myapp-replicaset
+
+## Deployment
+Deployment comes higher in hierarchy after replicaset. It is for rolling updates and upgrads.
+
+YAML
+To create a yaml file, take replicaset definition and just change kind to Deployment.
+>> kubectl create -f deployment.yml
+>> kubectl get deployments
+>> kubectl get replicaset
+>> kubectl get pods
+>> kubectl get all   (Get all deployments,replicaset,pods) 
