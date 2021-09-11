@@ -32,6 +32,10 @@ Trick - To edit pod definition
 ```
 $ kubectl edit pod redis
 ```
+Trick - To get the updated yaml file from etcd
+```
+$ kubectl get deployment nginx-deployment -o yaml
+```
 ## Replica Controller
 Run multiple instances of a pod in kubernetes cluster for high availability. Replication controller always maintains a specified pods running. Another reason is for load balancing and scaling. If load increases on a single node then we expand load on multiple containers
 
