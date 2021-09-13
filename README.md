@@ -97,4 +97,4 @@ To create a yaml file, take replicaset definition and just change kind to Deploy
 >> kubectl get deployments
 >> kubectl get replicaset
 >> kubectl get pods
->> kubectl get all   (Get all deployments,replicaset,pods) 
+>> kubectl get all   (Get all deployments,replicaset,pods)  
