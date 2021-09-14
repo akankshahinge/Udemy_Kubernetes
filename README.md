@@ -109,3 +109,45 @@ A new rollout creates a new deployment. If in future new updates is released the
 ### Deployment strategies
 1. Recreate: In this strategy all containers are done down and then new containers are made up. But because of these there is application downtime
 2. Rolling updates(Default deployment strategy): In this strategy the containers are taken down and new are brought up one by one while upgrading. So there is no downtime.
+
+### Services
+Services helps in communications. Communication between frontend and backend pods and frontend with outside world.
+Types of Services:
+1. NodePort: This service is accesssible to external user through a port. The service has port, The container port is TargetPort and outsite port is NodePort. NodePort is in the range of 30000-32767
+YAML
+```
+apiVersion: v1
+kind: Service
+metadata: 
+  name: myapp-service
+specs:
+  type: NodePort
+  ports: 
+  - targetPort: 80
+    port: 80
+    nodePort: 30008
+  selector:
+    app: myapp
+    type: front-end
+    
+ >> kubectl create -f service.yaml
+ >> kubectl get services
+```
+2. ClusterIP: This creates a network so that it communicated between frontend and backend services
+YAML
+```
+apiVersion: v1
+kind: Service
+metadata:
+ name: backend
+specs:
+ type: ClusterIP
+ ports:
+ - targerPort: 80
+   port: 80
+ selector:
+   app: myapp
+   type: backend
+
+```
+3. LoadBalancer: 
