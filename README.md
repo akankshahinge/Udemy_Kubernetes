@@ -98,3 +98,14 @@ To create a yaml file, take replicaset definition and just change kind to Deploy
 >> kubectl get replicaset
 >> kubectl get pods
 >> kubectl get all   (Get all deployments,replicaset,pods)  
+
+## Rollout
+A new rollout creates a new deployment. If in future new updates is released then new deployment is craeted
+```
+>> kubectl rollout status deployment/myapp-dep
+>> kubectl rollout history deployment/my-app
+>> kubectl rollout undo deployment/myapp
+```
+### Deployment strategies
+1. Recreate: In this strategy all containers are done down and then new containers are made up. But because of these there is application downtime
+2. Rolling updates(Default deployment strategy): In this strategy the containers are taken down and new are brought up one by one while upgrading. So there is no downtime.
