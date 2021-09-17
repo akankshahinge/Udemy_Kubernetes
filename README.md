@@ -151,3 +151,21 @@ specs:
 
 ```
 3. LoadBalancer: 
+
+### Namespace
+There are different namespaces craeted by kubernetes
+1. Default: 
+2. kube-system: It is used by kubernetes to create internal objects like DNS
+3. kube-public: Here resources for all users are created
+
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-namespace
+>> kubectl create -f namespace.yaml
+Or
+>> kubectl create namespace my-dev
+>> kubectl get pods --namespace=mydev
+>> kubectl get pods --all-namespaces
+```
