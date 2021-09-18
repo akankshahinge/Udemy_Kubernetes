@@ -31,6 +31,7 @@ $ kubectl run redis image=redis --dry-run=client -o yaml > pod.yaml
 Trick - To edit pod definition
 ```
 $ kubectl edit pod redis
+$ kubectl replace -f pod.yaml (To get back the changes to yaml file)
 ```
 Trick - To get the updated yaml file from etcd
 ```
