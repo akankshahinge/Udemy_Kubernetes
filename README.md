@@ -173,3 +173,23 @@ Or
 ### Imperative vs Declarative
 Imperative: In imperative way we declare the steps to achieve the goal. Eg. kubectl create, kubectl get, kubectl scale
 Declarative: In declarative way we dont give steps but leave it itself to figure it out. Eg. kubectl apply
+
+### Scheduler
+Scheduler will schedule the pods on nodes as per resources needed to schedule them. 
+- When pods are not running or in pending state then check if scheduler is running
+```
+$ kubectl get pods --namespace=kube-system  (All components pods are running in kube-system namespace)
+```
+- Schedule pods manually by adding nodeName: nodename property in pod definition yaml file. 
+  Note: Pods can be scheduled on nodes before creating them. So if they are craeted then delete them, then add nodeName property and then run yaml file
+  ```
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: nginx
+  spec:
+    nodeName: node01
+    containers:
+    -  image: nginx
+       name: nginx
+  ```
