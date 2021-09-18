@@ -169,3 +169,6 @@ Or
 >> kubectl get pods --namespace=mydev
 >> kubectl get pods --all-namespaces
 ```
+### Imperative vs Declarative
+Imperative: In imperative way we declare the steps to achieve the goal. Eg. kubectl create, kubectl get, kubectl scale
+Declarative: In declarative way we dont give steps but leave it itself to figure it out. Eg. kubectl apply
