@@ -221,4 +221,11 @@ $ kubectl get pods --namespace=kube-system  (All components pods are running in 
   ```
   >> kubectl taint nodes controlplane node-role.kubernetes.io/master:NoSchedule-
   ```
-  
+  ### Node Selector
+  Label Nodes
+  ```
+  >> kubectl label nodes <node-name> <label-key>=<label-value>
+  >> kubectl label nodes node-1 size=large
+  ```
+  ### Node Affinity
+  Provides advanced features to place a pod on node
