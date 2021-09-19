@@ -193,3 +193,32 @@ $ kubectl get pods --namespace=kube-system  (All components pods are running in 
     -  image: nginx
        name: nginx
   ```
+  ### Labels and Selectors
+  ```
+  >> kubectl get pods --selector env=dev
+  ```
+  ### Taints and Tolerance - it tells nodes to accept pods with ceratin toleration
+  When the scheduler places the pods on nodes then we need to place certain pods on a certain node then we paint the nodes with taint. By default pods are intolerent so they are not scheduled on that nodes, If we give pods tolerant to that taint then they will schedule on that pods.
+  ```
+  Taint to Nodes
+  >> kubectl taint nodes node-name key=value:taint-effect
+  Example
+  >> kubectl taint nodes node1 app=blue:NoSchedule
+  ```
+  Taint effect is what happens to PODs that do not tolerate this taint. Taint effect can be NoSchedule, PreferNoSchedule, NoExecute
+  Tolaration to Pods
+  ```
+  In yaml of pod definition add below field 
+  spec:
+    tolerations:
+    - key: "app"
+      opeartor: "Equal"
+      value: "blue"
+      effect: "NoSchedule"
+  ```
+  Note: Pods are never scheduled on master node as they are tainted.
+  To untaint the node
+  ```
+  >> kubectl taint nodes controlplane node-role.kubernetes.io/master:NoSchedule-
+  ```
+  
