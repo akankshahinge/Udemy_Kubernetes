@@ -1,4 +1,11 @@
 # Udemy_Kubernetes
+
+## exec command
+```
+$ kubectl exec <pod-name> date
+$ kubetcl exec -it <pod-name> /bin/bash
+$ kubetcl exec <pod-name> -c <container-name> date
+```
 ## Pod
 Pod is a basic entity in Kubernetes.
 A pod can only one container in it and other containers can be helper containers.
