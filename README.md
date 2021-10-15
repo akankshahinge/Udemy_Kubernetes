@@ -244,3 +244,12 @@ $ kubectl get pods --namespace=kube-system  (All components pods are running in 
   
   ### Resource requirements and limits
   We can set resuorce requireents and limit
+  
+  ### Daemon sets
+  It always makes sure taht one pod is running on node.
+  
+  ### Statis pods
+  We can craete a static pod. This pods are pods which are not created by api-server. They are hosted even if there is no apiserver. Kube-controller can be static pod. The are in manifest files.
+  
+  ### Multiple scheduler
+  We can have multiple scheduler, just change the name of the scheduler in yaml
