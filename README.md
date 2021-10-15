@@ -239,4 +239,8 @@ $ kubectl get pods --namespace=kube-system  (All components pods are running in 
   >> kubectl label nodes node-1 size=large
   ```
   ### Node Affinity
-  Provides advanced features to place a pod on node
+  - Provides advanced features to place a pod on node
+  - To ensure pods are placed on specified nodes
+  
+  ### Resource requirements and limits
+  We can set resuorce requireents and limit
