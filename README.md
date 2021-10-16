@@ -112,7 +112,7 @@ To create a yaml file, take replicaset definition and just change kind to Deploy
 >> kubectl get all   (Get all deployments,replicaset,pods)  
 
 ## Rollout
-A new rollout creates a new deployment. If in future new updates is released then new deployment is craeted
+A new rollout creates a new deployment. If in future new updates is released then new deployment is craeted. A revision history is maintained for each deployment. If we have updated then applied the yaml, kubernetes internally craetes a new replicas. If we undo the changes it goes back to previous replicaset
 ```
 >> kubectl rollout status deployment/myapp-dep
 >> kubectl rollout history deployment/my-app
