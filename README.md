@@ -253,3 +253,9 @@ $ kubectl get pods --namespace=kube-system  (All components pods are running in 
   
   ### Multiple scheduler
   We can have multiple scheduler, just change the name of the scheduler in yaml
+  
+  ### Commands and Arguments
+  - ENTRYPOINT in container is equivalent to command in yaml for pod
+  - CMD in container is equivalent to args in yaml for pod
+  ### Config Map
+  We can specify environment variables through config maps
